@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md. Imran Hossain Emu — Lecturer & Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    /* Core palette — deep teal-navy with a warm amber accent */
+    --navy:        #0D2B45;
+    --teal:        #1A5C7A;
+    --teal-mid:    #2C7D9E;
+    --accent:      #E07B3A;       /* warm amber — the single bold risk */
+    --accent-soft: #FDF1E8;
+    --accent-mid:  #F5D4B4;
+    --emerald:     #1E7D5B;
+    --emerald-bg:  #E8F7F1;
+    --sky:         #3B82C4;
+    --sky-bg:      #EAF3FF;
+
+    --text:        #1A2535;
+    --muted:       #4D6478;
+    --subtle:      #8499AE;
+    --border:      #D8E6EE;
+    --bg:          #FFFFFF;
+    --bg-2:        #F4F9FC;
+    --bg-3:        #E8F2F8;
+    --shadow-sm:   0 1px 3px rgba(13,43,69,.08);
+    --shadow-md:   0 6px 20px rgba(13,43,69,.10);
+    --shadow-lg:   0 16px 40px rgba(13,43,69,.14);
+
+    --r:  10px;
+    --rl: 16px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 17.5px;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ═══════════ NAV ═══════════ */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: rgba(13,43,69,0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+
+  .nav-inner {
+    max-width: 1020px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 54px;
+    padding: 0 2rem;
+  }
+
+  .nav-brand {
+    font-size: 13px;
+    font-weight: 600;
+    color: #FFFFFF;
+    letter-spacing: .04em;
+    text-decoration: none;
+    opacity: .9;
+  }
+
+  .nav-brand span {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12.5px;
+    color: rgba(255,255,255,.65);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: .03em;
+    transition: color .15s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(255,255,255,.8);
+    padding: 4px;
+  }
+
+  /* ═══════════ HERO ═══════════ */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #0F3D5F 45%, var(--teal) 100%);
+    padding: 4rem 2rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* decorative geometric shapes */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(224,123,58,.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 10%;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(44,125,158,.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2.5rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    background: rgba(224,123,58,.12);
+    border: 1px solid rgba(224,123,58,.3);
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    white-space: nowrap;
+  }
+
+  .hero-title {
+    font-size: 14px;
+    color: rgba(255,255,255,.65);
+    margin-bottom: 28px;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap;
+    margin-top: 4px;
+    align-items: center;
+  }
+
+  .hero-links .btn {
+    padding: 8px 14px;
+    font-size: 12.5px;
+    white-space: nowrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border-radius: var(--r);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all .18s;
+    cursor: pointer;
+  }
+
+  .btn-accent {
+    background: var(--accent);
+    color: #FFFFFF;
+    border: 1px solid var(--accent);
+    box-shadow: 0 4px 14px rgba(224,123,58,.35);
+  }
+
+  .btn-accent:hover {
+    background: #C86B28;
+    box-shadow: 0 6px 18px rgba(224,123,58,.45);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    background: rgba(255,255,255,.08);
+    color: rgba(255,255,255,.85);
+    border: 1px solid rgba(255,255,255,.18);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(255,255,255,.16);
+    border-color: rgba(255,255,255,.35);
+    transform: translateY(-1px);
+  }
+
+  /* avatar */
+  .hero-avatar {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1A5C7A, #2C7D9E);
+    border: 4px solid rgba(255,255,255,.2);
+    box-shadow: 0 12px 36px rgba(0,0,0,.35), 0 0 0 8px rgba(255,255,255,.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.6rem;
+    color: #FFFFFF;
+    flex-shrink: 0;
+    overflow: hidden;
+    transition: transform .3s;
+  }
+
+  .hero-avatar:hover { transform: scale(1.04); }
+
+  .hero-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  /* ═══════════ STATS BAR ═══════════ */
+  .stats-bar {
+    background: var(--navy);
+    border-bottom: 2px solid var(--teal);
+  }
+
+  .stats-inner {
+    max-width: 1020px;
+    margin: 0 auto;
+    display: flex;
+    padding: 0 2rem;
+  }
+
+  .stat-item {
+    flex: 1;
+    padding: 1.4rem 0;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,.08);
+    position: relative;
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--accent);
+    display: block;
+    line-height: 1.2;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,.5);
+    font-weight: 500;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+
+  /* ═══════════ LAYOUT ═══════════ */
+  main {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  section { margin-bottom: 3rem; }
+
+  /* ═══════════ SECTION LABELS ═══════════ */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .section-label-text {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--teal-mid);
+    white-space: nowrap;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
+  }
+
+  /* ═══════════ PROFILE TEXT ═══════════ */
+  .profile-text {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.85;
+  }
+
+  .profile-text strong { color: var(--navy); font-weight: 600; }
+
+  /* ═══════════ CARDS ═══════════ */
+  .card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--rl);
+    padding: 1.35rem 1.6rem;
+    margin-bottom: 1rem;
+    transition: box-shadow .2s, transform .2s;
+  }
+
+  .card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 5px;
+  }
+
+  .card-title {
+    font-weight: 600;
+    font-size: 14.5px;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+
+  .card-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--subtle);
+    white-space: nowrap;
+    font-weight: 400;
+    background: var(--bg-3);
+    padding: 3px 9px;
+    border-radius: 999px;
+    flex-shrink: 0;
+  }
+
+  .card-subtitle {
+    font-size: 13px;
+    color: var(--teal-mid);
+    font-style: italic;
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+
+  .card-location {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .card-location svg { width: 12px; height: 12px; flex-shrink: 0; color: var(--teal-mid); }
+
+  .card ul { list-style: none; padding: 0; }
+
+  .card ul li {
+    font-size: 13.5px;
+    color: var(--muted);
+    padding: 3px 0 3px 18px;
+    position: relative;
+    line-height: 1.65;
+  }
+
+  .card ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 2px;
+    color: var(--accent);
+    font-size: 10px;
+    top: 6px;
+  }
+
+  /* ═══════════ BADGES ═══════════ */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 500;
+  }
+
+  .badge-teal    { background: var(--sky-bg); color: var(--sky); }
+  .badge-green   { background: var(--emerald-bg); color: var(--emerald); }
+  .badge-amber   { background: var(--accent-soft); color: #9C4A10; }
+  .badge-gray    { background: var(--bg-3); color: var(--muted); }
+
+  .achieve-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
+    color: #92400E;
+    border: 1px solid #FDE68A;
+    border-radius: 999px;
+    padding: 3px 11px;
+    font-size: 11.5px;
+    font-weight: 500;
+    margin: 2px;
+  }
+
+  /* ═══════════ PUBLICATIONS ═══════════ */
+  .pub-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--rl);
+    padding: 1.35rem 1.6rem;
+    border-left: 4px solid var(--accent);
+    margin-bottom: 1rem;
+    transition: box-shadow .2s, transform .2s;
+  }
+
+  .pub-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+  .pub-title {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.55;
+    margin-bottom: 6px;
+  }
+
+  .pub-venue {
+    font-size: 12.5px;
+    color: var(--teal-mid);
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+
+  .pub-authors {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    line-height: 1.65;
+  }
+
+  .pub-authors strong { color: var(--navy); }
+
+  .pub-doi {
+    font-size: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--accent-mid);
+    transition: background .15s;
+  }
+
+  .pub-doi:hover { background: var(--accent-mid); }
+
+  /* ═══════════ TEACHING TAGS ═══════════ */
+  .teach-wrap { display: flex; flex-wrap: wrap; gap: 7px; }
+
+  .teach-tag {
+    background: linear-gradient(135deg, var(--bg-2), var(--bg-3));
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 6px 14px;
+    font-size: 12.5px;
+    color: var(--navy);
+    font-weight: 500;
+    transition: background .15s, border-color .15s;
+  }
+
+  .teach-tag:hover {
+    background: var(--sky-bg);
+    border-color: var(--sky);
+  }
+
+  /* ═══════════ ADMIN TABLE ═══════════ */
+  .admin-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+
+  .admin-item:last-child { border-bottom: none; }
+  .admin-role { color: var(--text); font-weight: 500; line-height: 1.5; }
+  .admin-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--subtle);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ═══════════ CP ═══════════ */
+  .cp-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cp-item:last-child { border-bottom: none; }
+
+  .cp-platform {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--navy);
+    min-width: 82px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+
+  .cp-details {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .cp-details a { color: var(--teal-mid); text-decoration: none; font-weight: 600; }
+  .cp-details a:hover { color: var(--accent); text-decoration: underline; }
+
+  /* ═══════════ CERT GRID ═══════════ */
+  .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+
+  .cert-item {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 9px 11px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--teal-mid);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background .15s, border-color .15s, color .15s;
+  }
+
+  .cert-item:hover {
+    background: var(--sky-bg);
+    border-color: var(--sky);
+    color: var(--navy);
+  }
+
+  .cert-item svg { width: 12px; height: 12px; flex-shrink: 0; color: var(--accent); }
+
+  /* ═══════════ SIDEBAR ═══════════ */
+  .sidebar { position: static; }
+
+  .sidebar-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--rl);
+    padding: 1.25rem 1.35rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .sidebar-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--teal-mid);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  /* skills */
+  .skill-row { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+  .skill-label { font-size: 11.5px; font-weight: 700; color: var(--navy); }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+  .skill-tag {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2px 9px;
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 500;
+    transition: background .15s;
+  }
+  .skill-tag:hover { background: var(--sky-bg); color: var(--sky); border-color: var(--sky); }
+
+  /* research interest dots */
+  .interest-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    font-size: 13px;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+  }
+  .interest-item:last-child { border-bottom: none; }
+
+  .interest-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* profile links */
+  .profile-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    transition: color .15s;
+  }
+  .profile-link:last-child { border-bottom: none; }
+  .profile-link-label { font-size: 12.5px; font-weight: 600; color: var(--navy); }
+  .profile-link-icon { color: var(--subtle); width: 14px; height: 14px; }
+  .profile-link:hover .profile-link-label { color: var(--teal-mid); }
+  .profile-link:hover .profile-link-icon { color: var(--accent); }
+
+  /* ═══════════ CONTACT SECTION ═══════════ */
+  #contact {
+    background: linear-gradient(135deg, var(--navy) 0%, #0F3D5F 60%, var(--teal) 100%);
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #contact::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(224,123,58,.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .contact-inner {
+    max-width: 1020px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+
+  .contact-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,.6);
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-card {
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: var(--rl);
+    padding: 1.4rem 1.5rem;
+    transition: background .2s, transform .2s;
+  }
+
+  .contact-card:hover {
+    background: rgba(255,255,255,.12);
+    transform: translateY(-3px);
+  }
+
+  .contact-card-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: rgba(224,123,58,.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+
+  .contact-card-icon svg { color: var(--accent); width: 18px; height: 18px; }
+
+  .contact-card-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.45);
+    margin-bottom: 4px;
+  }
+
+  .contact-card-value {
+    font-size: 13.5px;
+    color: #FFFFFF;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .contact-card-value a {
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+
+  .contact-card-value a:hover {
+    color: var(--accent);
+  }
+
+  .social-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,.1);
+  }
+
+  .social-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 999px;
+    padding: 7px 16px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,.8);
+    text-decoration: none;
+    transition: background .15s, color .15s, border-color .15s, transform .15s;
+  }
+
+  .social-pill:hover {
+    background: var(--accent);
+    color: #FFFFFF;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .social-pill svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* ═══════════ FOOTER ═══════════ */
+  footer {
+    background: #0A1F33;
+    color: rgba(255,255,255,.35);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    font-size: 12px;
+    letter-spacing: .02em;
+  }
+
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* ═══════════ MOBILE ═══════════ */
+  @media (max-width: 768px) {
+    main { grid-template-columns: 1fr; }
+    .sidebar { position: static; top: auto; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-avatar { width: 100px; height: 100px; font-size: 1.6rem; order: -1; }
+    .stats-inner { flex-wrap: wrap; }
+    .stat-item { flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .stat-item:nth-child(2) { border-right: none; }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 54px; left: 0; right: 0;
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding: .5rem 0;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: .65rem 2rem; }
+    .nav-toggle { display: block; }
+    .cert-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .hero { padding: 3.5rem 1.25rem 2.5rem; }
+    .hero-links { flex-wrap: wrap; }
+    .hero-links .btn { font-size: 12px; padding: 7px 12px; }
+    main { padding: 2rem 1.25rem; }
+    #contact { padding: 3rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">Emu <span>·</span> BAIUST</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#competitive">Competitive</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">
+        <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        Faculty, Department of CSE
+      </div>
+      <h1>Md. Imran Hossain Emu</h1>
+      <p class="hero-title">
+        Lecturer &amp; Researcher<br>
+        Bangladesh Army International University of Science and Technology
+      </p>
+
+      <div class="hero-links">
+        <a href="https://baiust.ac.bd/imran-hossain-emu/" target="_blank" class="btn btn-accent">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          Faculty Page
+        </a>
+        <a href="https://scholar.google.com/citations?user=RUC5uigAAAAJ" target="_blank" class="btn btn-ghost">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422A12.083 12.083 0 0118 15.5c0 2.485-2.686 4.5-6 4.5s-6-2.015-6-4.5c0-1.09.293-2.112.84-2.922L12 14z"/></svg>
+          Google Scholar
+        </a>
+        <a href="https://github.com/mdihemu" target="_blank" class="btn btn-ghost">
+          <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Contact
+        </a>
+      </div>
+    </div>
+    <div class="hero-avatar">
+      <img src="Images/25.2.png" alt="Md. Imran Hossain Emu">
+    </div>
+  </div>
+</header>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-value">3+</span>
+      <div class="stat-label">Years Teaching</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">1000+</span>
+      <div class="stat-label">Problems Solved</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-value">150+</span>
+      <div class="stat-label">Contests Entered</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main>
+  <!-- LEFT COLUMN -->
+  <div>
+
+    <!-- PROFILE -->
+    <section id="profile">
+      <p class="section-label"><span class="section-label-text">Academic Profile</span></p>
+      <p class="profile-text">
+        Motivated Computer Science educator and researcher with experience in undergraduate teaching, academic coordination, software development, database management, and student mentoring. Currently serving as Lecturer in the Department of Computer Science and Engineering at Bangladesh Army International University of Science and Technology. Skilled in delivering core Computer Science courses, preparing academic materials, supporting curriculum development, and guiding students in programming, algorithms, artificial intelligence, and software development.
+      </p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <p class="section-label"><span class="section-label-text">Education</span></p>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Master of Science in Computer Science &amp; Engineering</div>
+          <span class="card-date">2024 – Present</span>
+        </div>
+        <div class="card-subtitle">Bangladesh University of Professionals</div>
+        <div class="card-location">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+          Mirpur Cantonment, Dhaka
+        </div>
+        <p style="font-size:13px; color:var(--muted); margin-top:4px; font-style:italic; line-height:1.6; padding-left:12px; border-left:3px solid var(--accent);">
+          Thesis: Violence Detection in Video Using Mamba-Based Architecture with Person Re-Identification
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Bachelor of Science in Computer Science &amp; Engineering</div>
+          <span class="card-date">2018 – 2022</span>
+        </div>
+        <div class="card-subtitle">Bangladesh Army International University of Science and Technology</div>
+        <div class="card-location">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+          Cumilla, Bangladesh
+        </div>
+        <div>
+          <span class="achieve-tag">🏆 VC's List × 3</span>
+          <span class="achieve-tag">🎖 Dean's List × 4</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Higher Secondary School Certificate (HSC)</div>
+          <span class="card-date">2017</span>
+        </div>
+        <div class="card-subtitle">Comilla Govt. College</div>
+        <div class="card-location">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+          Police Line, Cumilla
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="badge badge-gray">Comilla Board</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Secondary School Certificate (SSC)</div>
+          <span class="card-date">2015</span>
+        </div>
+        <div class="card-subtitle">Comilla Modern High School</div>
+        <div class="card-location">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+          Nazrul Avenue, Cumilla
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <span class="badge badge-gray">Comilla Board</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ACADEMIC APPOINTMENT -->
+    <section id="appointment">
+      <p class="section-label"><span class="section-label-text">Academic Appointment</span></p>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Lecturer, Department of CSE</div>
+          <span class="card-date">Jan 2023 – Present</span>
+        </div>
+        <div class="card-subtitle">Bangladesh Army International University of Science and Technology</div>
+        <div class="card-location">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+          Cumilla, Bangladesh
+        </div>
+        <ul>
+          <li>Conduct undergraduate theory and laboratory courses in Computer Science and Engineering.</li>
+          <li>Teach core subjects including Data Structures, Algorithms, Artificial Intelligence, Operating Systems, and Programming.</li>
+          <li>Prepare lecture materials, lab tasks, assignments, quizzes, examination questions, and evaluation rubrics.</li>
+          <li>Support student learning through academic advising, practical demonstrations, and problem-solving sessions.</li>
+          <li>Contribute to curriculum development, departmental academic activities, and quality enhancement initiatives.</li>
+          <li>Participate in academic coordination and documentation related to departmental administration and accreditation activities.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications">
+      <p class="section-label"><span class="section-label-text">Publications</span></p>
+
+      <div class="pub-card">
+        <div class="pub-title">Restoring Rhythm: Punctuation Restoration Using Transformer Models for Bangla, A Low-Resource Language</div>
+        <div class="pub-venue">Data Science, AI and Applications, ICDSAIA 2025 · Communications in Computer and Information Science, vol. 2682, Springer, Cham, 2025, pp. 33–45</div>
+        <div class="pub-authors">Md Obyedullahil Mamun, Md Adyelullahil Mamun, Arif Ahmad and <strong>Md. Imran Hossain Emu</strong></div>
+        <a href="https://doi.org/10.1007/978-3-032-11352-8_3" target="_blank" class="pub-doi">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          DOI: 10.1007/978-3-032-11352-8_3
+        </a>
+      </div>
+    </section>
+
+    <!-- PROFESSIONAL EXPERIENCE -->
+    <section id="experience">
+      <p class="section-label"><span class="section-label-text">Professional Experience</span></p>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Business Analyst</div>
+          <span class="card-date">Oct 2022 – Jan 2023</span>
+        </div>
+        <div class="card-subtitle">Nassa Taipei Denims Ltd.</div>
+        <div class="card-location">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+          Cumilla-3500, Bangladesh
+        </div>
+        <ul>
+          <li>Maintained backend and database systems to support business operations.</li>
+          <li>Provided daily technical support to Norming and Sage 300 ERP users.</li>
+          <li>Monitored and resolved integration and data posting issues between web systems and ERP platforms.</li>
+          <li>Developed Power BI reports and prepared process documentation and user manuals.</li>
+          <li>Applied advanced Excel skills for data analysis, reporting, and operational improvement.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Junior Software Engineer</div>
+          <span class="card-date">Apr 2021 – Sep 2022</span>
+        </div>
+        <div class="card-subtitle">Mainamati Cantonment General Hospital</div>
+        <div class="card-location">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+          Cumilla Cantonment
+        </div>
+        <ul>
+          <li>Developed and maintained hospital management software solutions as a core member of the development team.</li>
+          <li>Provided comprehensive hardware and software technical support to ensure system reliability and user satisfaction.</li>
+          <li>Created detailed technical documentation, user manuals, and system specifications to support implementation and maintenance.</li>
+          <li>Conducted software training sessions for hospital employees to ensure effective adoption and utilization of systems.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">IT Support Intern</div>
+          <span class="card-date">Apr 2020 – Mar 2021</span>
+        </div>
+        <div class="card-subtitle">Mainamati Cantonment General Hospital</div>
+        <div class="card-location">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+          Cumilla Cantonment
+        </div>
+        <ul>
+          <li>Provided technical support for hardware (computers, printers, peripherals) and software (Windows OS, MS Office, medical applications) to hospital staff.</li>
+          <li>Diagnosed and resolved IT issues through troubleshooting, system maintenance, and user assistance.</li>
+          <li>Assisted in maintaining IT infrastructure, including network connectivity and system updates.</li>
+          <li>Created and updated technical documentation, user guides, and support procedures for common IT tasks.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ADMIN -->
+    <section id="admin">
+      <p class="section-label"><span class="section-label-text">Academic Administrative Experience</span></p>
+      <div class="card" style="padding: 1rem 1.6rem;">
+        <div class="admin-item">
+          <span class="admin-role">Program Coordinator, Department of CSE, BAIUST</span>
+          <span class="admin-period">Nov 2023 – Feb 2025</span>
+        </div>
+        <div class="admin-item">
+          <span class="admin-role">Member, Program Self-Assessment Committee, CSE, BAIUST</span>
+          <span class="admin-period">Nov 2023 – Present</span>
+        </div>
+        <div class="admin-item">
+          <span class="admin-role">Co-Advisor, BAIUST Sports Club</span>
+          <span class="admin-period">Nov 2023 – Feb 2025</span>
+        </div>
+        <div class="admin-item">
+          <span class="admin-role">Member, Departmental Equivalence Committee for Credit Transfer</span>
+          <span class="admin-period">2023 – Present</span>
+        </div>
+        <div class="admin-item">
+          <span class="admin-role">Member, CSE Fest 2025 Organizing Committee</span>
+          <span class="admin-period">2025</span>
+        </div>
+        <div class="admin-item">
+          <span class="admin-role">Member, Committee for Preparation of IT Policy, BAIUST</span>
+          <span class="admin-period">2026</span>
+        </div>
+        <div class="admin-item">
+          <span class="admin-role">Member, Prospectus Committee, BAIUST</span>
+          <span class="admin-period">2023 – 2024</span>
+        </div>
+        <div class="admin-item">
+          <span class="admin-role">Member, Newsletter Committee, BAIUST</span>
+          <span class="admin-period">2024</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT -->
+    <section id="project">
+      <p class="section-label"><span class="section-label-text">Selected Projects</span></p>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <a href="https://github.com/mdihemu/Project_MCGH" target="_blank" style="color:var(--teal-mid); text-decoration:none;">Hospital Management System</a>
+          </div>
+          <span class="card-date">Jun 2021 – May 2022</span>
+        </div>
+        <div class="card-subtitle">Mainamati Cantonment General Hospital · Final Year Group Project</div>
+        <ul>
+          <li>Developed a hospital management system currently in operation at the hospital.</li>
+          <li>Managed database operations and prepared official documentation.</li>
+          <li>Technologies: PHP, Laravel, MySQL, and JavaScript.</li>
+        </ul>
+        <div style="margin-top:12px; display:flex; gap:7px; flex-wrap:wrap;">
+          <span class="badge badge-gray">PHP</span>
+          <span class="badge badge-gray">Laravel</span>
+          <span class="badge badge-gray">MySQL</span>
+          <span class="badge badge-gray">JavaScript</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <a href="https://github.com/mdihemu/TicTacToe-Games" target="_blank" style="color:var(--teal-mid); text-decoration:none;">Tic-Tac-Toe Game</a>
+          </div>
+          <span class="card-date">Mar 2021 – Aug 2021</span>
+        </div>
+        <div class="card-subtitle">Academic Project for Artificial Intelligence · Cumilla</div>
+        <ul>
+          <li>Developed a game supporting two-player mode and an AI opponent.</li>
+          <li>Applied basic artificial intelligence concepts for game decision-making.</li>
+        </ul>
+        <div style="margin-top:12px; display:flex; gap:7px; flex-wrap:wrap;">
+          <span class="badge badge-amber">Artificial Intelligence</span>
+          <span class="badge badge-gray">Game Dev</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <a href="https://github.com/mdihemu/Routine_Android" target="_blank" style="color:var(--teal-mid); text-decoration:none;">Online Routine System</a>
+          </div>
+          <span class="card-date">Sep 2020 – Feb 2021</span>
+        </div>
+        <div class="card-subtitle">Academic Project for Software Engineering · BAIUST, Cumilla</div>
+        <ul>
+          <li>Developed a routine management system for academic scheduling.</li>
+          <li>Technologies: Android Studio and Java.</li>
+        </ul>
+        <div style="margin-top:12px; display:flex; gap:7px; flex-wrap:wrap;">
+          <span class="badge badge-gray">Android Studio</span>
+          <span class="badge badge-gray">Java</span>
+        </div>
+      </div>
+
+    </section>
+
+  </div><!-- /left -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-card">
+      <div class="sidebar-title">Technical Skills</div>
+
+      <div class="skill-row">
+        <span class="skill-label">Languages</span>
+        <div class="skill-tags">
+          <span class="skill-tag">C</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">C#</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">PHP</span>
+          <span class="skill-tag">Java</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <span class="skill-label">Frameworks</span>
+        <div class="skill-tags">
+          <span class="skill-tag">Laravel</span>
+          <span class="skill-tag">.NET</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <span class="skill-label">Databases</span>
+        <div class="skill-tags">
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">MS SQL Server</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <span class="skill-label">Tools</span>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Android Studio</span>
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">Sage 300 ERP</span>
+        </div>
+      </div>
+
+      <div class="skill-row">
+        <span class="skill-label">Concepts</span>
+        <div class="skill-tags">
+          <span class="skill-tag">DSA</span>
+          <span class="skill-tag">OOP</span>
+          <span class="skill-tag">SDLC</span>
+          <span class="skill-tag">OBE</span>
+          <span class="skill-tag">Accreditation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- COURSES TAUGHT -->
+    <div class="sidebar-card" id="courses">
+      <div class="sidebar-title">Courses Taught</div>
+
+      <div style="margin-bottom: 1rem;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--teal-mid); margin-bottom:8px; padding-bottom:5px; border-bottom:1px solid var(--border);">Dept. of CSE</div>
+        <div class="teach-wrap">
+          <span class="teach-tag">Structured Programming Language</span>
+          <span class="teach-tag">Structured Programming Language Sessional</span>
+          <span class="teach-tag">Data Structures</span>
+          <span class="teach-tag">Data Structures Sessional</span>
+          <span class="teach-tag">Computer Algorithms &amp; Complexity</span>
+          <span class="teach-tag">Computer Algorithms &amp; Complexity Sessional</span>
+          <span class="teach-tag">Artificial Intelligence</span>
+          <span class="teach-tag">Artificial Intelligence Sessional</span>
+          <span class="teach-tag">Numerical Analysis</span>
+          <span class="teach-tag">Numerical Analysis Sessional</span>
+          <span class="teach-tag">Computer Interfacing</span>
+          <span class="teach-tag">Computer Interfacing Sessional</span>
+          <span class="teach-tag">Engineering Ethics &amp; Management</span>
+          <span class="teach-tag">Software Development for Web Apps Sessional</span>
+          <span class="teach-tag">Operating System Sessional</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1rem;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--teal-mid); margin-bottom:8px; padding-bottom:5px; border-bottom:1px solid var(--border);">Dept. of English</div>
+        <div class="teach-wrap">
+          <span class="teach-tag">Computer Sessional</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1rem;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--teal-mid); margin-bottom:8px; padding-bottom:5px; border-bottom:1px solid var(--border);">Dept. of EEE</div>
+        <div class="teach-wrap">
+          <span class="teach-tag">Computer Programming I</span>
+          <span class="teach-tag">Computer Programming I Sessional</span>
+          <span class="teach-tag">Computer Programming II Sessional</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 1rem;">
+        <div style="font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--teal-mid); margin-bottom:8px; padding-bottom:5px; border-bottom:1px solid var(--border);">Dept. of Civil Engineering</div>
+        <div class="teach-wrap">
+          <span class="teach-tag">Numerical Methods &amp; Computer Programming</span>
+          <span class="teach-tag">Numerical Methods &amp; Computer Programming Sessional</span>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--teal-mid); margin-bottom:8px; padding-bottom:5px; border-bottom:1px solid var(--border);">Dept. of Law</div>
+        <div class="teach-wrap">
+          <span class="teach-tag">Computer &amp; Its Application</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESEARCH INTERESTS -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">Research Interests</div>
+      <div class="interest-item">
+        <span class="interest-dot" style="background:#3B82C4;"></span>
+        Natural Language Processing
+      </div>
+      <div class="interest-item">
+        <span class="interest-dot" style="background:#E07B3A;"></span>
+        Computer Vision
+      </div>
+      <div class="interest-item">
+        <span class="interest-dot" style="background:#1E7D5B;"></span>
+        Machine Learning
+      </div>
+      <div class="interest-item">
+        <span class="interest-dot" style="background:#8B5CF6;"></span>
+        Internet of Things
+      </div>
+    </div>
+
+    <!-- RESEARCH PROFILES -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">Research Profiles</div>
+      <a href="https://scholar.google.com/citations?user=RUC5uigAAAAJ" target="_blank" class="profile-link">
+        <span class="profile-link-label">Google Scholar</span>
+        <svg class="profile-link-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+      <a href="https://www.researchgate.net/profile/Md-Emu" target="_blank" class="profile-link">
+        <span class="profile-link-label">ResearchGate</span>
+        <svg class="profile-link-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+      <a href="https://orcid.org/0009-0009-4948-4687" target="_blank" class="profile-link">
+        <span class="profile-link-label">ORCID</span>
+        <svg class="profile-link-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+      <a href="https://github.com/mdihemu" target="_blank" class="profile-link">
+        <span class="profile-link-label">GitHub</span>
+        <svg class="profile-link-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/mdihemu" target="_blank" class="profile-link">
+        <span class="profile-link-label">LinkedIn</span>
+        <svg class="profile-link-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+    </div>
+
+    <!-- ACHIEVEMENTS -->
+    <div class="sidebar-card" id="achievements">
+      <div class="sidebar-title">Academic Achievements</div>
+      <div style="display:flex; flex-direction:column; gap:0;">
+        <div style="display:flex; align-items:flex-start; gap:8px; padding:7px 0; border-bottom:1px solid var(--border); font-size:13px; color:var(--text);">
+          <span style="color:var(--accent); font-size:10px; margin-top:4px; flex-shrink:0;">▸</span>
+          VC's List: Spring 2020, Spring 2021, Fall 2021.
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:8px; padding:7px 0; border-bottom:1px solid var(--border); font-size:13px; color:var(--text);">
+          <span style="color:var(--accent); font-size:10px; margin-top:4px; flex-shrink:0;">▸</span>
+          Dean's List: Spring 2018, Fall 2018, Fall 2019, Fall 2020.
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:8px; padding:7px 0; border-bottom:1px solid var(--border); font-size:13px; color:var(--text);">
+          <span style="color:var(--accent); font-size:10px; margin-top:4px; flex-shrink:0;">▸</span>
+          Participated in ICPC Asia Dhaka Regional Contest, 2020 to 2022.
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:8px; padding:7px 0; border-bottom:1px solid var(--border); font-size:13px; color:var(--text);">
+          <span style="color:var(--accent); font-size:10px; margin-top:4px; flex-shrink:0;">▸</span>
+          Ranked 125th out of 165 teams in ICPC Asia Dhaka Regional Contest 2022.
+        </div>
+        <div style="display:flex; align-items:flex-start; gap:8px; padding:7px 0; font-size:13px; color:var(--text);">
+          <span style="color:var(--accent); font-size:10px; margin-top:4px; flex-shrink:0;">▸</span>
+          Honorable Mention in ICPC Online Preliminary Contest, 2020 and 2021.
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPETITIVE PROGRAMMING -->
+    <div class="sidebar-card" id="competitive">
+      <div class="sidebar-title">Competitive Programming</div>
+      <div class="cp-item">
+        <div class="cp-platform">Codeforces</div>
+        <div class="cp-details">
+          <a href="http://codeforces.com/profile/DarkMotion" target="_blank">DarkMotion</a> — 700+ problems · 115+ rated contests · Max rating <strong style="color:var(--navy)">1364</strong>
+        </div>
+      </div>
+      <div class="cp-item">
+        <div class="cp-platform">CodeChef</div>
+        <div class="cp-details">
+          <a href="https://www.codechef.com/users/darkmotion" target="_blank">darkmotion</a> — Max rating <strong style="color:var(--navy)">1704</strong> · 3-star · 25+ rated contests
+        </div>
+      </div>
+      <div class="cp-item">
+        <div class="cp-platform">LeetCode</div>
+        <div class="cp-details">
+          <a href="https://leetcode.com/DarkMotion/" target="_blank">DarkMotion</a> — 275+ problems · Max rating <strong style="color:var(--navy)">1444</strong>
+        </div>
+      </div>
+      <div class="cp-item">
+        <div class="cp-platform">HackerRank</div>
+        <div class="cp-details">
+          <a href="https://www.hackerrank.com/DarkMotion" target="_blank">DarkMotion</a> — Gold Badges in C, C++, Problem Solving &amp; SQL
+        </div>
+      </div>
+      <div class="cp-item" style="border:none;">
+        <div class="cp-platform">Contests</div>
+        <div class="cp-details">
+          150+ online contests · ICPC Asia Dhaka Regional 2021 &amp; 2022 · Computenigma 2020 · Tech Carnival 1.0, 2021
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATES -->
+    <div class="sidebar-card" id="certificates">
+      <div class="sidebar-title">Certificates</div>
+      <div class="cert-grid">
+        <a href="https://www.facebook.com/codingcompetitions/hacker-cup/2021/certificate/3205162712871868" target="_blank" class="cert-item">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          Meta Hacker Cup 2021
+        </a>
+        <a href="https://www.facebook.com/codingcompetitions/hacker-cup/2022/certificate/3205162712871868" target="_blank" class="cert-item">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          Meta Hacker Cup 2022
+        </a>
+        <a href="https://www.facebook.com/codingcompetitions/hacker-cup/2023/certificate/3205162712871868" target="_blank" class="cert-item">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          Meta Hacker Cup 2023
+        </a>
+        <a href="https://www.hackerrank.com/certificates/11893645cdcb" target="_blank" class="cert-item">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          HackerRank C# Basic
+        </a>
+        <a href="https://www.hackerrank.com/certificates/9e0c161591a5" target="_blank" class="cert-item">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          HackerRank Problem Solving
+        </a>
+        <a href="https://www.hackerrank.com/certificates/66786920acb9" target="_blank" class="cert-item">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          HackerRank SQL Basic
+        </a>
+        <a href="https://www.hackerrank.com/certificates/bb193ed757db" target="_blank" class="cert-item">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          HackerRank SQL Intermediate
+        </a>
+        <a href="https://drive.google.com/file/d/11CBphrz-jn0cZzDeY5Y0SWHH6W2IbFuK/view?usp=share_link" target="_blank" class="cert-item">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          ICPC Onsite 2022
+        </a>
+        <a href="https://drive.google.com/file/d/1G0B2rTp3j8hbvzoci4su_ytyMB4Spt3Y/view?usp=share_link" target="_blank" class="cert-item">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          ICPC Preliminary 2022
+        </a>
+        <a href="https://drive.google.com/file/d/1mWmhYLVkJ9rDQNRDMfvC3O3ctsS4mvjB/view?usp=share_link" target="_blank" class="cert-item">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          ICPC Preliminary 2021
+        </a>
+        <a href="https://drive.google.com/file/d/1vf9O0pmt93O8DNSgVCAhRLdiqCngbmed/view?usp=share_link" target="_blank" class="cert-item">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          ICPC Preliminary 2020
+        </a>
+      </div>
+    </div>
+
+  </aside>
+</main>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="border-bottom:none;">
+      <span class="section-label-text" style="color:rgba(255,255,255,.45);">Get in Touch</span>
+    </div>
+    <h2 class="contact-heading">Contact Information</h2>
+    <p class="contact-sub">Feel free to reach out for academic collaboration, research inquiries, or student mentoring.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-card-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <div class="contact-card-label">Email</div>
+        <div class="contact-card-value"><a href="mailto:mdihemu@gmail.com">mdihemu@gmail.com</a></div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        </div>
+        <div class="contact-card-label">Phone</div>
+        <div class="contact-card-value"><a href="tel:+8801521232506">+880 1521-232506</a></div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div class="contact-card-label">Address</div>
+        <div class="contact-card-value">
+          Dept. of CSE, BAIUST<br>
+          Cumilla-3500, Bangladesh
+        </div>
+      </div>
+    </div>
+
+    <div class="social-row">
+      <a href="https://baiust.ac.bd/imran-hossain-emu/" target="_blank" class="social-pill">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        Faculty Page
+      </a>
+      <a href="https://scholar.google.com/citations?user=RUC5uigAAAAJ" target="_blank" class="social-pill">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422A12.083 12.083 0 0118 15.5c0 2.485-2.686 4.5-6 4.5s-6-2.015-6-4.5c0-1.09.293-2.112.84-2.922L12 14z"/></svg>
+        Google Scholar
+      </a>
+      <a href="https://www.researchgate.net/profile/Md-Emu" target="_blank" class="social-pill">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        ResearchGate
+      </a>
+      <a href="https://orcid.org/0009-0009-4948-4687" target="_blank" class="social-pill">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h3a3 3 0 010 6H9V7zm0 6h5"/></svg>
+        ORCID
+      </a>
+      <a href="https://linkedin.com/in/mdihemu" target="_blank" class="social-pill">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://github.com/mdihemu" target="_blank" class="social-pill">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://leetcode.com/DarkMotion/" target="_blank" class="social-pill">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+        LeetCode
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Md. Imran Hossain Emu &nbsp;·&nbsp; Lecturer, Dept. of CSE, BAIUST &nbsp;·&nbsp; Cumilla-3500, Bangladesh</p>
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        links.classList.remove('open');
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
