@@ -679,222 +679,180 @@
   .profile-link:hover .profile-link-label { color: var(--teal-mid); }
   .profile-link:hover .profile-link-icon { color: var(--accent); }
 
-  /* ═══════════ THREE-PHOTO GALLERY SLIDER ═══════════ */
-  #gallery {
-    max-width: 1020px;
-    margin: 0 auto 3.5rem;
-    padding: 0 2rem;
-    scroll-margin-top: 80px;
-  }
+  /* ═══════════ PHOTO GALLERY SLIDER ═══════════ */
 
-  .photo-slider {
-    position: relative;
-    width: 100%;
-    padding: 12px;
-    overflow: hidden;
-    background: var(--bg-2);
-    border: 1px solid var(--border);
-    border-radius: var(--rl);
-    box-shadow: var(--shadow-md);
-  }
+.photo-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--navy);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  box-shadow: var(--shadow-md);
+}
 
-  .photo-slider-viewport {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 12px;
-  }
+.photo-slider-track {
+  display: flex;
+  transition: transform 0.65s ease-in-out;
+}
 
-  .photo-slider-track {
-    display: flex;
-    gap: 16px;
-    will-change: transform;
-    transition: transform .65s cubic-bezier(.22,.61,.36,1);
-  }
+.photo-slide {
+  position: relative;
+  min-width: 100%;
+  height: 390px;
+  overflow: hidden;
+  margin: 0;
+  background: var(--bg-3);
+}
 
+.photo-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 5s ease;
+}
+
+/* Slight zoom effect while the image is active */
+.photo-slide.active img {
+  transform: scale(1.05);
+}
+
+.photo-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 55px 70px 24px 24px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  background: linear-gradient(
+    to top,
+    rgba(7, 25, 41, 0.95),
+    rgba(7, 25, 41, 0.55),
+    transparent
+  );
+}
+
+.photo-caption strong {
+  display: block;
+  margin-bottom: 2px;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.photo-slider-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  color: #ffffff;
+  background: rgba(13, 43, 69, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+}
+
+.photo-slider-btn:hover {
+  color: #ffffff;
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.photo-slider-btn.prev {
+  left: 15px;
+}
+
+.photo-slider-btn.next {
+  right: 15px;
+}
+
+.photo-slider-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 17px;
+  z-index: 6;
+  display: flex;
+  gap: 7px;
+  transform: translateX(-50%);
+}
+
+.photo-slider-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.photo-slider-dot.active {
+  width: 25px;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.photo-slider-counter {
+  position: absolute;
+  right: 17px;
+  top: 17px;
+  z-index: 6;
+  padding: 4px 10px;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(13, 43, 69, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  backdrop-filter: blur(5px);
+}
+
+/* Slider mobile design */
+@media (max-width: 768px) {
   .photo-slide {
-    position: relative;
-    flex: 0 0 calc((100% - 32px) / 3);
-    min-width: 0;
-    height: 310px;
-    margin: 0;
-    overflow: hidden;
-    background: var(--navy);
-    border-radius: 12px;
-    box-shadow: var(--shadow-sm);
-  }
-
-  .photo-slide img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    transition: transform .55s ease;
-  }
-
-  .photo-slide:hover img {
-    transform: scale(1.06);
+    height: 270px;
   }
 
   .photo-caption {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    min-height: 108px;
-    padding: 48px 18px 17px;
-    color: #FFFFFF;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.5;
-    background: linear-gradient(
-      to top,
-      rgba(7,25,41,.97) 0%,
-      rgba(7,25,41,.76) 48%,
-      transparent 100%
-    );
+    padding: 50px 55px 18px 18px;
+    font-size: 13px;
   }
 
   .photo-caption strong {
-    display: block;
-    margin-bottom: 3px;
-    font-family: 'DM Serif Display', Georgia, serif;
     font-size: 17px;
-    font-weight: 400;
-    line-height: 1.3;
   }
 
   .photo-slider-btn {
-    position: absolute;
-    top: 50%;
-    z-index: 10;
-    width: 42px;
-    height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFFFFF;
-    background: rgba(13,43,69,.84);
-    border: 1px solid rgba(255,255,255,.28);
-    border-radius: 50%;
-    cursor: pointer;
-    transform: translateY(-65%);
-    transition: background .2s, border-color .2s, transform .2s, opacity .2s;
-    backdrop-filter: blur(6px);
+    width: 36px;
+    height: 36px;
   }
 
-  .photo-slider-btn:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    transform: translateY(-65%) scale(1.08);
+  .photo-slider-btn.prev {
+    left: 10px;
   }
 
-  .photo-slider-btn.prev { left: 22px; }
-  .photo-slider-btn.next { right: 22px; }
-
-  .photo-slider-btn:disabled {
-    opacity: .3;
-    cursor: not-allowed;
-  }
-
-  .photo-slider-btn:disabled:hover {
-    background: rgba(13,43,69,.84);
-    border-color: rgba(255,255,255,.28);
-    transform: translateY(-65%);
-  }
-
-  .photo-slider-footer {
-    min-height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-    padding: 11px 5px 0;
+  .photo-slider-btn.next {
+    right: 10px;
   }
 
   .photo-slider-dots {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 7px;
+    bottom: 12px;
   }
-
-  .photo-slider-dot {
-    width: 8px;
-    height: 8px;
-    padding: 0;
-    background: var(--subtle);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    opacity: .5;
-    transition: width .25s, opacity .25s, background .25s;
-  }
-
-  .photo-slider-dot.active {
-    width: 25px;
-    background: var(--accent);
-    border-radius: 999px;
-    opacity: 1;
-  }
-
-  .photo-slider-counter {
-    flex-shrink: 0;
-    color: var(--muted);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
-  }
-
-  /* Tablet: show 2 photos */
-  @media (max-width: 900px) {
-    .photo-slide {
-      flex-basis: calc((100% - 16px) / 2);
-      height: 300px;
-    }
-  }
-
-  /* Mobile: show 1 photo */
-  @media (max-width: 600px) {
-    #gallery {
-      padding: 0 1.25rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .photo-slider {
-      padding: 8px;
-    }
-
-    .photo-slider-track {
-      gap: 12px;
-    }
-
-    .photo-slide {
-      flex-basis: 100%;
-      height: 300px;
-    }
-
-    .photo-slider-btn {
-      width: 37px;
-      height: 37px;
-    }
-
-    .photo-slider-btn.prev { left: 16px; }
-    .photo-slider-btn.next { right: 16px; }
-
-    .photo-caption {
-      min-height: 104px;
-      padding: 46px 16px 15px;
-      font-size: 12.5px;
-    }
-
-    .photo-caption strong {
-      font-size: 18px;
-    }
-
-    .photo-slider-footer {
-      align-items: flex-start;
-    }
-  }
-  
+}
   /* ═══════════ CONTACT SECTION ═══════════ */
   #contact {
     background: linear-gradient(135deg, var(--navy) 0%, #0F3D5F 60%, var(--teal) 100%);
@@ -1077,7 +1035,6 @@
       <li><a href="#appointment">Experience</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#competitive">Competitive</a></li>
-      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
@@ -1709,122 +1666,101 @@
     aria-label="Portfolio photo gallery"
     tabindex="0"
   >
-    <div class="photo-slider-viewport">
-      <div class="photo-slider-track">
+    <div class="photo-slider-track">
 
-        <!-- PHOTO 1 -->
-        <figure class="photo-slide">
-          <img
-            src="Images/As a Special Guest at Syntax Spark.jpeg"
-            alt="Teaching students in the classroom"
-          >
-          <figcaption class="photo-caption">
-            <strong>Special Guest</strong>
-            Syntax Spark at CMHS.
-          </figcaption>
-        </figure>
+      <!-- PHOTO 1 -->
+      <figure class="photo-slide active">
+        <img
+          src="Images/1.png"
+          alt="Teaching students in the classroom"
+        >
+        <figcaption class="photo-caption">
+          <strong>Classroom Teaching</strong>
+          Conducting an undergraduate programming class at BAIUST.
+        </figcaption>
+      </figure>
 
-        <!-- PHOTO 2 -->
-        <figure class="photo-slide">
-          <img
-            src="Images/Certificate Giving Ceremony of EDGE at BAIUST Section.jpeg"
-            alt="Participating in an academic event"
-            loading="lazy"
-          >
-          <figcaption class="photo-caption">
-            <strong>EDGE Bangladesh</strong>
-            Certificate Giving Ceremony of EDGE at BAIUST Section
-          </figcaption>
-        </figure>
+      <!-- PHOTO 2 -->
+      <figure class="photo-slide">
+        <img
+          src="Images/2.2.png"
+          alt="Participating in an academic event"
+          loading="lazy"
+        >
+        <figcaption class="photo-caption">
+          <strong>Academic Event</strong>
+          Participating in a departmental academic and research programme.
+        </figcaption>
+      </figure>
 
-        <!-- PHOTO 3 -->
-        <figure class="photo-slide">
-          <img
-            src="Images/MIST Visit for BAETE Accreditation.jpeg"
-            alt="Mentoring university students"
-            loading="lazy"
-          >
-          <figcaption class="photo-caption">
-            <strong>MIST</strong>
-            For BAETE Accreditation.
-          </figcaption>
-        </figure>
+      <!-- PHOTO 3 -->
+      <figure class="photo-slide">
+        <img
+          src="Images/LinkedIn Cover Page.png"
+          alt="Mentoring university students"
+          loading="lazy"
+        >
+        <figcaption class="photo-caption">
+          <strong>Student Mentoring</strong>
+          Supporting students in programming, projects and research activities.
+        </figcaption>
+      </figure>
 
-        <!-- PHOTO 4: Replace the image path, title and caption -->
-        <figure class="photo-slide">
-          <img
-            src="Images/With Honoruable Dean and Head at MIST.jpeg"
-            alt="Academic activity"
-            loading="lazy"
-          >
-          <figcaption class="photo-caption">
-            <strong>MIST</strong>
-            With Honoruable Dean Sir and Head Sir at MIST.
-          </figcaption>
-        </figure>
-
-        <!-- PHOTO 5: Replace the image path, title and caption -->
-        <figure class="photo-slide">
-          <img
-            src="Images/Premier University visit for BAC Accreditation.jpeg"
-            alt="University activity"
-            loading="lazy"
-          >
-          <figcaption class="photo-caption">
-            <strong>Premier University</strong>
-            For BAC Accreditation.
-          </figcaption>
-        </figure>
-
-        <!-- PHOTO 6: Replace the image path, title and caption -->
-        <figure class="photo-slide">
-          <img
-            src="Images/With Mighty MAK & GMN Sir.png"
-            alt="University activity"
-            loading="lazy"
-          >
-          <figcaption class="photo-caption">
-            <strong>At BAIUST</strong>
-            With Mighty MAK & GMN Sir.
-          </figcaption>
-        </figure>
-
-      </div>
     </div>
 
+    <!-- Previous button -->
     <button
       class="photo-slider-btn prev"
       type="button"
-      aria-label="Show previous photos"
+      aria-label="Show previous photo"
     >
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+      <svg
+        width="20"
+        height="20"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15 19l-7-7 7-7"
+        />
       </svg>
     </button>
 
+    <!-- Next button -->
     <button
       class="photo-slider-btn next"
       type="button"
-      aria-label="Show next photos"
+      aria-label="Show next photo"
     >
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+      <svg
+        width="20"
+        height="20"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M9 5l7 7-7 7"
+        />
       </svg>
     </button>
 
-    <div class="photo-slider-footer">
-      <div
-        class="photo-slider-dots"
-        aria-label="Select a photo group"
-      ></div>
-
-      <div class="photo-slider-counter" aria-live="polite">
-        Showing
-        <span class="visible-range">1–3</span>
-        of
-        <span class="total-photos">6</span>
-      </div>
+    <!-- Slide number -->
+    <div class="photo-slider-counter" aria-live="polite">
+      <span class="current-photo">01</span>
+      /
+      <span class="total-photos">03</span>
     </div>
+
+    <!-- Dots will be created automatically by JavaScript -->
+    <div class="photo-slider-dots" aria-label="Select a photo"></div>
   </div>
 </section>
 <!-- CONTACT SECTION -->
@@ -1921,141 +1857,108 @@
       }
     });
   });
-  /* ═══════════ THREE-PHOTO AUTOMATIC SLIDER ═══════════ */
+  /* ═══════════ AUTOMATIC PHOTO SLIDER ═══════════ */
+
   const photoSlider = document.getElementById('portfolio-photo-slider');
 
   if (photoSlider) {
     const sliderTrack = photoSlider.querySelector('.photo-slider-track');
-    const photoSlides = Array.from(photoSlider.querySelectorAll('.photo-slide'));
+    const photoSlides = Array.from(
+      photoSlider.querySelectorAll('.photo-slide')
+    );
+
     const previousButton = photoSlider.querySelector('.prev');
     const nextButton = photoSlider.querySelector('.next');
     const dotsContainer = photoSlider.querySelector('.photo-slider-dots');
-    const visibleRange = photoSlider.querySelector('.visible-range');
-    const totalPhotos = photoSlider.querySelector('.total-photos');
+    const currentCounter = photoSlider.querySelector('.current-photo');
+    const totalCounter = photoSlider.querySelector('.total-photos');
 
-    let currentIndex = 0;
-    let visiblePhotos = 3;
-    let maximumIndex = 0;
+    let currentSlide = 0;
     let automaticSlider;
-    let resizeTimer;
-    let touchStartX = 0;
 
-    // Change 4500 to control the automatic sliding speed.
-    // 4500 milliseconds = 4.5 seconds.
-    const sliderDelay = 4500;
+    // Change this value to control slider speed.
+    // 5000 means 5 seconds.
+    const sliderDelay = 5000;
 
-    totalPhotos.textContent = photoSlides.length;
+    totalCounter.textContent = String(photoSlides.length).padStart(2, '0');
 
-    function getVisiblePhotoCount() {
-      if (window.innerWidth <= 600) return 1;
-      if (window.innerWidth <= 900) return 2;
-      return 3;
-    }
+    // Automatically create one dot for every photo
+    photoSlides.forEach((slide, index) => {
+      const dot = document.createElement('button');
 
-    function getTrackGap() {
-      const styles = window.getComputedStyle(sliderTrack);
-      return parseFloat(styles.columnGap || styles.gap) || 0;
-    }
+      dot.type = 'button';
+      dot.className = 'photo-slider-dot';
+      dot.setAttribute('aria-label', `Show photo ${index + 1}`);
 
-    function calculateSlider() {
-      visiblePhotos = getVisiblePhotoCount();
-      maximumIndex = Math.max(0, photoSlides.length - visiblePhotos);
+      dot.addEventListener('click', () => {
+        showPhoto(index);
+        restartAutomaticSlider();
+      });
 
-      if (currentIndex > maximumIndex) {
-        currentIndex = maximumIndex;
+      dotsContainer.appendChild(dot);
+    });
+
+    const sliderDots = Array.from(
+      dotsContainer.querySelectorAll('.photo-slider-dot')
+    );
+
+    function showPhoto(index) {
+      // Go back to the last photo from the first photo
+      if (index < 0) {
+        currentSlide = photoSlides.length - 1;
       }
-    }
 
-    function createDots() {
-      dotsContainer.innerHTML = '';
+      // Return to the first photo after the last photo
+      else if (index >= photoSlides.length) {
+        currentSlide = 0;
+      }
 
-      for (let index = 0; index <= maximumIndex; index++) {
-        const dot = document.createElement('button');
-        dot.type = 'button';
-        dot.className = 'photo-slider-dot';
-        dot.setAttribute(
-          'aria-label',
-          `Show photos starting from photo ${index + 1}`
+      else {
+        currentSlide = index;
+      }
+
+      sliderTrack.style.transform =
+        `translateX(-${currentSlide * 100}%)`;
+
+      photoSlides.forEach((slide, slideIndex) => {
+        slide.classList.toggle(
+          'active',
+          slideIndex === currentSlide
         );
+      });
 
-        dot.addEventListener('click', () => {
-          showPhotos(index);
-          restartAutomaticSlider();
-        });
+      sliderDots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === currentSlide;
 
-        dotsContainer.appendChild(dot);
-      }
-    }
-
-    function updateCounter() {
-      const firstPhoto = currentIndex + 1;
-      const lastPhoto = Math.min(
-        currentIndex + visiblePhotos,
-        photoSlides.length
-      );
-
-      visibleRange.textContent =
-        firstPhoto === lastPhoto
-          ? String(firstPhoto)
-          : `${firstPhoto}–${lastPhoto}`;
-    }
-
-    function updateDots() {
-      const dots = dotsContainer.querySelectorAll('.photo-slider-dot');
-
-      dots.forEach((dot, index) => {
-        const isActive = index === currentIndex;
         dot.classList.toggle('active', isActive);
         dot.setAttribute('aria-current', isActive ? 'true' : 'false');
       });
+
+      currentCounter.textContent =
+        String(currentSlide + 1).padStart(2, '0');
     }
 
-    function updateButtons() {
-      const cannotMove = photoSlides.length <= visiblePhotos;
-      previousButton.disabled = cannotMove;
-      nextButton.disabled = cannotMove;
+    function showNextPhoto() {
+      showPhoto(currentSlide + 1);
     }
 
-    function showPhotos(index) {
-      if (maximumIndex === 0) {
-        currentIndex = 0;
-      } else if (index > maximumIndex) {
-        currentIndex = 0;
-      } else if (index < 0) {
-        currentIndex = maximumIndex;
-      } else {
-        currentIndex = index;
-      }
-
-      const firstSlide = photoSlides[0];
-      const slideWidth = firstSlide ? firstSlide.getBoundingClientRect().width : 0;
-      const movement = currentIndex * (slideWidth + getTrackGap());
-
-      sliderTrack.style.transform = `translate3d(-${movement}px, 0, 0)`;
-
-      updateCounter();
-      updateDots();
-      updateButtons();
-    }
-
-    function showNextPhotos() {
-      showPhotos(currentIndex + 1);
-    }
-
-    function showPreviousPhotos() {
-      showPhotos(currentIndex - 1);
-    }
-
-    function stopAutomaticSlider() {
-      clearInterval(automaticSlider);
+    function showPreviousPhoto() {
+      showPhoto(currentSlide - 1);
     }
 
     function startAutomaticSlider() {
       stopAutomaticSlider();
 
-      if (photoSlides.length > visiblePhotos) {
-        automaticSlider = setInterval(showNextPhotos, sliderDelay);
+      if (photoSlides.length > 1) {
+        automaticSlider = setInterval(
+          showNextPhoto,
+          sliderDelay
+        );
       }
+    }
+
+    function stopAutomaticSlider() {
+      clearInterval(automaticSlider);
     }
 
     function restartAutomaticSlider() {
@@ -2063,37 +1966,42 @@
       startAutomaticSlider();
     }
 
-    function rebuildSlider() {
-      calculateSlider();
-      createDots();
-      showPhotos(currentIndex);
-      restartAutomaticSlider();
-    }
-
     nextButton.addEventListener('click', () => {
-      showNextPhotos();
+      showNextPhoto();
       restartAutomaticSlider();
     });
 
     previousButton.addEventListener('click', () => {
-      showPreviousPhotos();
+      showPreviousPhoto();
       restartAutomaticSlider();
     });
 
-    photoSlider.addEventListener('mouseenter', stopAutomaticSlider);
-    photoSlider.addEventListener('mouseleave', startAutomaticSlider);
+    // Pause when the mouse is over the slider
+    photoSlider.addEventListener(
+      'mouseenter',
+      stopAutomaticSlider
+    );
 
+    photoSlider.addEventListener(
+      'mouseleave',
+      startAutomaticSlider
+    );
+
+    // Keyboard controls
     photoSlider.addEventListener('keydown', event => {
       if (event.key === 'ArrowRight') {
-        showNextPhotos();
+        showNextPhoto();
         restartAutomaticSlider();
       }
 
       if (event.key === 'ArrowLeft') {
-        showPreviousPhotos();
+        showPreviousPhoto();
         restartAutomaticSlider();
       }
     });
+
+    // Mobile swipe controls
+    let touchStartX = 0;
 
     photoSlider.addEventListener(
       'touchstart',
@@ -2111,9 +2019,11 @@
         const swipeDistance = touchStartX - touchEndX;
 
         if (Math.abs(swipeDistance) > 50) {
-          swipeDistance > 0
-            ? showNextPhotos()
-            : showPreviousPhotos();
+          if (swipeDistance > 0) {
+            showNextPhoto();
+          } else {
+            showPreviousPhoto();
+          }
         }
 
         startAutomaticSlider();
@@ -2121,26 +2031,18 @@
       { passive: true }
     );
 
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(rebuildSlider, 180);
-    });
-
+    // Stop slider when browser tab is inactive
     document.addEventListener('visibilitychange', () => {
-      document.hidden
-        ? stopAutomaticSlider()
-        : startAutomaticSlider();
+      if (document.hidden) {
+        stopAutomaticSlider();
+      } else {
+        startAutomaticSlider();
+      }
     });
 
-    // Wait until the layout and image dimensions are available.
-    window.addEventListener('load', rebuildSlider);
-
-    calculateSlider();
-    createDots();
-    showPhotos(0);
+    showPhoto(0);
     startAutomaticSlider();
   }
-
 </script>
 </body>
 </html>
