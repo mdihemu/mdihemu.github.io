@@ -712,46 +712,35 @@
   }
 
   .photo-slide {
-    position: relative;
     flex: 0 0 calc((100% - 32px) / 3);
     min-width: 0;
-    height: 310px;
     margin: 0;
     overflow: hidden;
-    background: var(--navy);
     border-radius: 12px;
     box-shadow: var(--shadow-sm);
   }
 
   .photo-slide img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
     display: block;
-    object-fit: cover;
-    transition: transform .55s ease;
-  }
-
-  .photo-slide:hover img {
-    transform: scale(1.06);
+    object-fit: contain;
+    background: var(--navy);
+    border-radius: 12px 12px 0 0;
   }
 
   .photo-caption {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    min-height: 108px;
-    padding: 48px 18px 17px;
-    color: #FFFFFF;
+    min-height: 88px;
+    padding: 14px 16px 16px;
+    color: var(--muted);
     font-size: 12px;
     font-weight: 400;
     line-height: 1.5;
-    background: linear-gradient(
-      to top,
-      rgba(7,25,41,.97) 0%,
-      rgba(7,25,41,.76) 48%,
-      transparent 100%
-    );
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
   }
 
   .photo-caption strong {
@@ -760,6 +749,7 @@
     font-family: 'DM Serif Display', Georgia, serif;
     font-size: 17px;
     font-weight: 400;
+    color: var(--navy);
     line-height: 1.3;
   }
 
@@ -848,7 +838,6 @@
   @media (max-width: 900px) {
     .photo-slide {
       flex-basis: calc((100% - 16px) / 2);
-      height: 300px;
     }
   }
 
@@ -869,7 +858,6 @@
 
     .photo-slide {
       flex-basis: 100%;
-      height: 300px;
     }
 
     .photo-slider-btn {
@@ -881,8 +869,8 @@
     .photo-slider-btn.next { right: 16px; }
 
     .photo-caption {
-      min-height: 104px;
-      padding: 46px 16px 15px;
+      min-height: 92px;
+      padding: 14px 16px 15px;
       font-size: 12.5px;
     }
 
@@ -1122,7 +1110,7 @@
       </div>
     </div>
     <div class="hero-avatar">
-      <img src="Images/Imran.png" alt="Md. Imran Hossain Emu">
+      <img src="Images/Imran.webp" alt="Md. Imran Hossain Emu">
     </div>
   </div>
 </header>
@@ -1165,7 +1153,7 @@
       <div class="card">
         <div class="card-header">
           <div class="card-title">Master of Science in Computer Science &amp; Engineering</div>
-          <span class="card-date">2024 – Present</span>
+          <span class="card-date">2024 – 2026</span>
         </div>
         <div class="card-subtitle">Bangladesh University of Professionals (BUP)</div>
         <div class="card-location">
@@ -1350,7 +1338,19 @@
           <span class="admin-period">2025</span>
         </div>
         <div class="admin-item">
+          <span class="admin-role">Member, CSE Fest 2024 Organizing Committee</span>
+          <span class="admin-period">2024</span>
+        </div>
+        <div class="admin-item">
+          <span class="admin-role">Member, CSE Fest 2023 Organizing Committee</span>
+          <span class="admin-period">2023</span>
+        </div>
+        <div class="admin-item">
           <span class="admin-role">Member, Committee for Preparation of IT Policy, BAIUST</span>
+          <span class="admin-period">2026</span>
+        </div>
+        <div class="admin-item">
+          <span class="admin-role">Member Secretary, Committee for Assessment, Optimum Utilization and Reallocation of Computers in Various Laboratories</span>
           <span class="admin-period">2026</span>
         </div>
         <div class="admin-item">
@@ -1715,7 +1715,7 @@
         <!-- PHOTO 1 -->
         <figure class="photo-slide">
           <img
-            src="Images/As a Special Guest at Syntax Spark.jpeg"
+            src="Images/As a Special Guest at Syntax Spark.webp"
             alt="Teaching students in the classroom"
           >
           <figcaption class="photo-caption">
@@ -1727,7 +1727,7 @@
         <!-- PHOTO 2 -->
         <figure class="photo-slide">
           <img
-            src="Images/Certificate Giving Ceremony of EDGE at BAIUST Section.jpeg"
+            src="Images/Certificate Giving Ceremony of EDGE at BAIUST Section.webp"
             alt="Participating in an academic event"
             loading="lazy"
           >
@@ -1740,7 +1740,7 @@
         <!-- PHOTO 3 -->
         <figure class="photo-slide">
           <img
-            src="Images/MIST Visit for BAETE Accreditation.jpeg"
+            src="Images/MIST Visit for BAETE Accreditation.webp"
             alt="Mentoring university students"
             loading="lazy"
           >
@@ -1753,7 +1753,7 @@
         <!-- PHOTO 4: Replace the image path, title and caption -->
         <figure class="photo-slide">
           <img
-            src="Images/With Honoruable Dean and Head at MIST.jpeg"
+            src="Images/With Honoruable Dean and Head at MIST.webp"
             alt="Academic activity"
             loading="lazy"
           >
@@ -1766,7 +1766,7 @@
         <!-- PHOTO 5: Replace the image path, title and caption -->
         <figure class="photo-slide">
           <img
-            src="Images/Premier University visit for BAC Accreditation.jpeg"
+            src="Images/Premier University visit for BAC Accreditation.webp"
             alt="University activity"
             loading="lazy"
           >
@@ -1779,7 +1779,7 @@
         <!-- PHOTO 6: Replace the image path, title and caption -->
         <figure class="photo-slide">
           <img
-            src="Images/With Mighty MAK & GMN Sir.png"
+            src="Images/With Mighty MAK & GMN Sir.webp"
             alt="University activity"
             loading="lazy"
           >
@@ -1792,7 +1792,7 @@
         <!-- PHOTO 6: Replace the image path, title and caption -->
         <figure class="photo-slide">
           <img
-            src="Images/Cox's Bazar Tour.jpeg"
+            src="Images/Cox's Bazar Tour.webp"
             alt="University activity"
             loading="lazy"
           >
