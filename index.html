@@ -754,9 +754,6 @@
   }
 
   .photo-slider-btn {
-    position: absolute;
-    top: 50%;
-    z-index: 10;
     width: 42px;
     height: 42px;
     display: flex;
@@ -767,7 +764,6 @@
     border: 1px solid rgba(255,255,255,.28);
     border-radius: 50%;
     cursor: pointer;
-    transform: translateY(-65%);
     transition: background .2s, border-color .2s, transform .2s, opacity .2s;
     backdrop-filter: blur(6px);
   }
@@ -775,11 +771,8 @@
   .photo-slider-btn:hover {
     background: var(--accent);
     border-color: var(--accent);
-    transform: translateY(-65%) scale(1.08);
+    transform: scale(1.08);
   }
-
-  .photo-slider-btn.prev { left: 22px; }
-  .photo-slider-btn.next { right: 22px; }
 
   .photo-slider-btn:disabled {
     opacity: .3;
@@ -789,14 +782,14 @@
   .photo-slider-btn:disabled:hover {
     background: rgba(13,43,69,.84);
     border-color: rgba(255,255,255,.28);
-    transform: translateY(-65%);
+    transform: none;
   }
 
   .photo-slider-footer {
     min-height: 36px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 42px 1fr 42px;
     align-items: center;
-    justify-content: space-between;
     gap: 14px;
     padding: 11px 5px 0;
   }
@@ -804,8 +797,21 @@
   .photo-slider-dots {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 7px;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .photo-slider-footer .photo-slider-btn.prev {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .photo-slider-footer .photo-slider-btn.next {
+    grid-column: 3;
+    grid-row: 1;
   }
 
   .photo-slider-dot {
@@ -825,13 +831,6 @@
     background: var(--accent);
     border-radius: 999px;
     opacity: 1;
-  }
-
-  .photo-slider-counter {
-    flex-shrink: 0;
-    color: var(--muted);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10.5px;
   }
 
   /* Tablet: show 2 photos */
@@ -1808,38 +1807,31 @@
       </div>
     </div>
 
-    <button
-      class="photo-slider-btn prev"
-      type="button"
-      aria-label="Show previous photos"
-    >
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-      </svg>
-    </button>
-
-    <button
-      class="photo-slider-btn next"
-      type="button"
-      aria-label="Show next photos"
-    >
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-      </svg>
-    </button>
-
     <div class="photo-slider-footer">
+      <button
+        class="photo-slider-btn prev"
+        type="button"
+        aria-label="Show previous photos"
+      >
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+
       <div
         class="photo-slider-dots"
         aria-label="Select a photo group"
       ></div>
 
-      <div class="photo-slider-counter" aria-live="polite">
-        Showing
-        <span class="visible-range">1–3</span>
-        of
-        <span class="total-photos">6</span>
-      </div>
+      <button
+        class="photo-slider-btn next"
+        type="button"
+        aria-label="Show next photos"
+      >
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
     </div>
   </div>
 </section>
@@ -1942,25 +1934,22 @@
 
   if (photoSlider) {
     const sliderTrack = photoSlider.querySelector('.photo-slider-track');
-    const photoSlides = Array.from(photoSlider.querySelectorAll('.photo-slide'));
+    const originalPhotoSlides = Array.from(photoSlider.querySelectorAll('.photo-slide'));
+    let photoSlides = originalPhotoSlides;
     const previousButton = photoSlider.querySelector('.prev');
     const nextButton = photoSlider.querySelector('.next');
     const dotsContainer = photoSlider.querySelector('.photo-slider-dots');
-    const visibleRange = photoSlider.querySelector('.visible-range');
-    const totalPhotos = photoSlider.querySelector('.total-photos');
-
     let currentIndex = 0;
     let visiblePhotos = 3;
     let maximumIndex = 0;
     let automaticSlider;
     let resizeTimer;
     let touchStartX = 0;
+    let isLoopResetting = false;
 
     // Change 4500 to control the automatic sliding speed.
     // 4500 milliseconds = 4.5 seconds.
     const sliderDelay = 4500;
-
-    totalPhotos.textContent = photoSlides.length;
 
     function getVisiblePhotoCount() {
       if (window.innerWidth <= 600) return 1;
@@ -1975,7 +1964,16 @@
 
     function calculateSlider() {
       visiblePhotos = getVisiblePhotoCount();
-      maximumIndex = Math.max(0, photoSlides.length - visiblePhotos);
+      photoSlider.querySelectorAll('.photo-slide-clone').forEach(clone => clone.remove());
+
+      originalPhotoSlides.slice(0, visiblePhotos).forEach(slide => {
+        const clone = slide.cloneNode(true);
+        clone.classList.add('photo-slide-clone');
+        sliderTrack.appendChild(clone);
+      });
+
+      photoSlides = Array.from(sliderTrack.querySelectorAll('.photo-slide'));
+      maximumIndex = Math.max(0, originalPhotoSlides.length - 1);
 
       if (currentIndex > maximumIndex) {
         currentIndex = maximumIndex;
@@ -1985,7 +1983,7 @@
     function createDots() {
       dotsContainer.innerHTML = '';
 
-      for (let index = 0; index <= maximumIndex; index++) {
+      for (let index = 0; index < originalPhotoSlides.length; index++) {
         const dot = document.createElement('button');
         dot.type = 'button';
         dot.className = 'photo-slider-dot';
@@ -2003,24 +2001,11 @@
       }
     }
 
-    function updateCounter() {
-      const firstPhoto = currentIndex + 1;
-      const lastPhoto = Math.min(
-        currentIndex + visiblePhotos,
-        photoSlides.length
-      );
-
-      visibleRange.textContent =
-        firstPhoto === lastPhoto
-          ? String(firstPhoto)
-          : `${firstPhoto}–${lastPhoto}`;
-    }
-
     function updateDots() {
       const dots = dotsContainer.querySelectorAll('.photo-slider-dot');
 
       dots.forEach((dot, index) => {
-        const isActive = index === currentIndex;
+        const isActive = index === currentIndex % originalPhotoSlides.length;
         dot.classList.toggle('active', isActive);
         dot.setAttribute('aria-current', isActive ? 'true' : 'false');
       });
@@ -2035,7 +2020,7 @@
     function showPhotos(index) {
       if (maximumIndex === 0) {
         currentIndex = 0;
-      } else if (index > maximumIndex) {
+      } else if (index > originalPhotoSlides.length) {
         currentIndex = 0;
       } else if (index < 0) {
         currentIndex = maximumIndex;
@@ -2049,7 +2034,6 @@
 
       sliderTrack.style.transform = `translate3d(-${movement}px, 0, 0)`;
 
-      updateCounter();
       updateDots();
       updateButtons();
     }
@@ -2086,6 +2070,18 @@
       restartAutomaticSlider();
     }
 
+    sliderTrack.addEventListener('transitionend', () => {
+      if (currentIndex === originalPhotoSlides.length && !isLoopResetting) {
+        isLoopResetting = true;
+        sliderTrack.style.transition = 'none';
+        currentIndex = 0;
+        showPhotos(0);
+        sliderTrack.offsetWidth;
+        sliderTrack.style.transition = '';
+        isLoopResetting = false;
+      }
+    });
+
     nextButton.addEventListener('click', () => {
       showNextPhotos();
       restartAutomaticSlider();
@@ -2109,6 +2105,7 @@
         showPreviousPhotos();
         restartAutomaticSlider();
       }
+
     });
 
     photoSlider.addEventListener(
