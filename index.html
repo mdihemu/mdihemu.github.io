@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Md. Imran Hossain Emu</title>
-<link rel="icon" type="image/png" href="Images/Logo3.jpeg">
+<link rel="icon" type="image/png" href="Images/Logo10.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -60,9 +60,9 @@
     position: sticky;
     top: 0;
     z-index: 200;
-    background: rgba(13,43,69,0.97);
+    background: var(--bg-2);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,.08);
+    border-bottom: 1px solid var(--border);
   }
 
   .nav-inner {
@@ -73,12 +73,14 @@
     justify-content: space-between;
     height: 54px;
     padding: 0 2rem;
+    background: var(--bg-2);
   }
 
   .nav-brand {
-    font-size: 13px;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 18px;
     font-weight: 600;
-    color: #FFFFFF;
+    color: var(--teal-mid);
     letter-spacing: .04em;
     text-decoration: none;
     opacity: .9;
@@ -96,8 +98,8 @@
   }
 
   .nav-links a {
-    font-size: 12.5px;
-    color: rgba(255,255,255,.65);
+    font-size: 14px;
+    color: var(--teal-mid);
     text-decoration: none;
     font-weight: 500;
     letter-spacing: .03em;
@@ -111,7 +113,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: rgba(255,255,255,.8);
+    color: var(--navy);
     padding: 4px;
   }
 
@@ -1041,8 +1043,8 @@
       flex-direction: column;
       position: absolute;
       top: 54px; left: 0; right: 0;
-      background: var(--navy);
-      border-bottom: 1px solid rgba(255,255,255,.1);
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
       padding: .5rem 0;
     }
     .nav-links.open { display: flex; }
@@ -1085,7 +1087,7 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-brand">Emu <span>·</span> BAIUST</a>
+    <a href="#" class="nav-brand">Imran Emu</a>
     <ul class="nav-links" id="nav-links">
       <li><a href="#profile">Profile</a></li>
       <li><a href="#education">Education</a></li>
